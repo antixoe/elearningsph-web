@@ -7,6 +7,21 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Exam Browser Setup
+
+This project is configured to use database-backed sessions and cache.
+
+- Set `SESSION_DRIVER=database`
+- Set `CACHE_STORE=database`
+- Run the migrations so `sessions`, `cache`, and `exam_locks` exist
+- Set `EXAM_TEACHER_OUT_CODE` in `.env` so teachers can release an `Out` session
+
+The exam browser will then:
+
+- load the approved exam host
+- block copy, paste, cut, and screenshot-style attempts
+- keep the lock in the database until the teacher code is used
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
